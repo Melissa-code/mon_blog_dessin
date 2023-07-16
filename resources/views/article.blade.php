@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-4 jumbotron">
-                {{-- title --}}
+                {{-- Article title --}}
                 <section class="title text-center">
                     <h1>{{ $article->title }} </h1>
                 </section>
-                {{-- article content --}}
+                {{-- Article content --}}
                 <section class="col-12 article my-4 d-flex justify-content-center">
                     <div class="row">
                         <article class="col-12 mt-2 text-center">

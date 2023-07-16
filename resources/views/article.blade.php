@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-4 jumbotron">
+                {{-- title --}}
                 <section class="title text-center">
                     <h1>{{ $article->title }} </h1>
                 </section>
@@ -20,12 +21,9 @@
                                 <i class="fa-solid fa-arrow-left" style="color: #ffffff";></i>
                                 Retour
                             </a>
-
                         </article>
                     </div>
-
                 </section>
-
             </div>
         </div>
     </div>

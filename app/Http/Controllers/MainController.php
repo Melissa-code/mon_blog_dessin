@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Services\ArticleService;
 use Illuminate\View\View;
 
 class MainController extends Controller
 {
+    private ArticleService $articleService;
+
+    public function __construct(ArticleService $articleService)
+    {
+        $this->articleService = $articleService;
+    }
+
     /**
      * Home page
      * @return View
@@ -22,7 +29,7 @@ class MainController extends Controller
      */
     public function index(): View
     {
-        $articles = Article::paginate(4);
+        $articles = $this->articleService->getAllArticles();
 
         return view('articles', [
             'articles' => $articles,
@@ -36,8 +43,7 @@ class MainController extends Controller
      */
     public function show(string $slug): View
     {
-        $article = Article::where('slug', $slug)->firstOrFail();
-        //dd($article);
+        $article = $this->articleService->getArticle($slug);
 
         return view('article', [
             'article' => $article,

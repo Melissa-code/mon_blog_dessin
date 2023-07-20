@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Verification DB connection
@@ -7,15 +8,11 @@ use Illuminate\Support\Facades\Route;
 //    dd(env('DB_DATABASE'));
 //});
 
-// Home route
-Route::get('/', [\App\Http\Controllers\MainController::class, 'home']);
-
-// Articles route
+Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 Route::get('/articles', [\App\Http\Controllers\MainController::class, 'index'])->name('articles');
-
-// Article route
 Route::get('/articles/{slug}', [\App\Http\Controllers\MainController::class, 'show'])->name('article');
 
+Auth::routes(); // Authentification route
 
-
+Route::get('/admin/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->middleware('admin');
 

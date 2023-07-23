@@ -40,7 +40,7 @@
 
                 {{-- Add a new article --}}
                 <section class="col-12 text-center">
-                    <a href="#" class="btn btn-dark w-100">
+                    <a href="{{ route('article.create') }}" class="btn btn-dark w-100">
                         <i class="fa-solid fa-plus"></i>
                         Ajouter un article</a>
                 </section>

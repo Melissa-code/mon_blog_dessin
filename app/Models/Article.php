@@ -9,6 +9,11 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'subtitle',
+        'content'
+    ];
 
     /**
      * Custom the format of the date

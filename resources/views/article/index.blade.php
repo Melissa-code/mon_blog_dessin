@@ -3,27 +3,57 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-4 jumbotron">
-                {{-- Article title --}}
+            <div class="col-12 jumbotron mt-4">
+
+                {{-- Title --}}
                 <section class="title text-center">
-                    <h1> </h1>
+                    <h1>Administration des articles</h1>
                 </section>
-                {{-- Article content --}}
-                <section class="col-12 article my-4 d-flex justify-content-center">
+
+                {{-- List of the articles in a table --}}
+                <section class="col-12 d-flex justify-content-center">
+                    <table class="table table-hover border border-secondary mt-3">
+                        <thead>
+                            <tr class="table-danger text-center">
+                                <th scope="col">Id</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Créé le</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($articles as $article)
+                            <tr>
+                                <td>{{ $article->id }}</td>
+                                <td>{{ $article->title }}</td>
+{{--                                <td>{{ date('d/m/Y', strtotime( $article->created_at)) }}</td>--}}
+                                <td>{{ $article->formatDate() }}</td>
+                                <td class="d-flex">
+                                    <a href="#" class="btn btn-warning "><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn btn-danger "><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </section>
+
+                {{-- Add a new article --}}
+                <section class="col-12 text-center">
+                    <a href="#" class="btn btn-dark w-100">
+                        <i class="fa-solid fa-plus"></i>
+                        Ajouter un article</a>
+                </section>
+
+                {{-- Pagination --}}
+                <section class="pagination d-flex justify-content-center mt-4">
                     <div class="row">
-                        <article class="col-12 mt-2 text-center">
-                            <h5></h5>
-                        </article>
-                        <article class="col-12 text-justify mt-4">
-                            <p></p>
-                            {{-- Button come back --}}
-                            <a href="{{ route('articles') }}" class="btn btn-danger mt-4">
-                                <i class="fa-solid fa-arrow-left" style="color: #ffffff";></i>
-                                Retour
-                            </a>
-                        </article>
+                        <div class="col-12">
+                            {{ $articles->links('_partials._pagination') }}
+                        </div>
                     </div>
                 </section>
+
             </div>
         </div>
     </div>

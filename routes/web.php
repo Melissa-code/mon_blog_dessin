@@ -14,5 +14,5 @@ Route::get('/articles/{slug}', [\App\Http\Controllers\MainController::class, 'sh
 
 Auth::routes(); // Authentification route
 
-Route::get('/admin/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->middleware('admin');
+Route::get('/admin/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->middleware('admin')->name('articles.index');;
 

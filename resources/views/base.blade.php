@@ -4,7 +4,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta desc="Ce site est mon blog de dessin.">
+        <meta name="description" content="Mon blog de dessin est un site contenant présentant plusieurs articles sur le dessin.">
         <!-- Favicon -->
         <link rel="icon" type="image/svg" href="{{ asset('images/favicon.svg') }}" />
         <!-- Fonts Poppins -->
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Bootswatch 4 CSS -->
         <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-        <!-- Bootswatch 4 CSS -->
+        <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" rel="stylesheet">
         <title>Mon Blog Dessin</title>
     </head>

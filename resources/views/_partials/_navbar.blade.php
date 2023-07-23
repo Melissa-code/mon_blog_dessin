@@ -21,8 +21,18 @@
                         Articles</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto d-flex align-items-center">
+                {{-- If User is logged-in --}}
                 @if (Auth::user())
+                    {{-- If Admin is logged-in --}}
+                    @if(Auth::user()->role === 'ADMIN')
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ route('articles.index') }}>
+                                <i class="fa-solid fa-gear" style="color: #99a1ad;"></i>
+                                Administration
+                            </a>
+                        </li>
+                    @endif
                 <li class="nav-item">
                     <form method="post" action="{{ route('logout') }}">
                         @csrf

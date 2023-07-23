@@ -23,8 +23,8 @@
                             <small id="subtitle" class="form-text text-muted">Décrire le thème souhaité</small>
                         </div>
                         <div class="form-group">
-                            <label for="content">Description</label>
-                            <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                            <label for="tinyEditor">Description</label>
+                            <textarea class="form-control" name="content" id="tinyEditor" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-light border border-dark"><a href="{{ route('articles.index') }}" class="text-decoration-none">Revenir</a></button>
@@ -35,4 +35,11 @@
             </div>
         </div>
     </div>
+
+    {{-- Tiny editor de text for the textarea --}}
+    <script>
+        tinymce.init({
+            selector: '#tinyEditor'
+        });
+    </script>
 @endsection

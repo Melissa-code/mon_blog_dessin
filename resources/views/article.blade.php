@@ -15,7 +15,8 @@
                             <h5>{{ $article->subtitle }}</h5>
                         </article>
                         <article class="col-12 text-justify mt-4">
-                            <p>{{ $article->content }}</p>
+                            {{-- {!! !!} to interprete code and to havong HTML tags --}}
+                            <p>{!! $article->content !!}</p>
                             {{-- Button come back --}}
                             <a href="{{ route('articles') }}" class="btn btn-danger mt-4">
                                 <i class="fa-solid fa-arrow-left" style="color: #ffffff";></i>

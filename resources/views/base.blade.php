@@ -21,6 +21,10 @@
     </head>
     <body>
         @include('_partials._navbar')
+
+        {{-- Tiny to create a text editor - doc: https://www.tiny.cloud/docs/quick-start/ --}}
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
         @yield('content')
 
         <!-- Bootstrap Jquery & JS -->

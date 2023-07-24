@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Services\ArticleService;
 use Illuminate\View\View;
 
@@ -38,15 +39,17 @@ class MainController extends Controller
 
     /**
      * Article page
-     * @param string $slug
+     * @param Article $article
      * @return View
      */
-    public function show(string $slug): View
+    public function show(Article $article): View
     {
-        $article = $this->articleService->getArticle($slug);
+        //$article = $this->articleService->getArticle($slug);
 
         return view('article', [
             'article' => $article,
         ]);
     }
+
+
 }

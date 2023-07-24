@@ -30,7 +30,31 @@
                                 <td>{{ $article->formatDate() }}</td>
                                 <td class="d-flex">
                                     <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                    <button type="button" class="btn btn-danger" onclick="document.getElementById('delete-article-modal-{{ $article->slug }}').style.display = 'block';"><i class="fa-solid fa-trash"></i></button>
+                                    <form action="{{ route('article.delete', $article->id) }}" method="POST">
+                                        @method('DELETE') {{-- overload the method post --}}
+                                        @csrf
+                                        {{-- Modal to delete --}}
+                                        <div class="modal" id="delete-article-modal-{{ $article->slug }}">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Supprimer un article</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="document.getElementById('delete-article-modal-{{ $article->slug }}').style.display = 'none';">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Etes-vous sûr de vouloir supprimer cet article?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Oui</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('delete-article-modal-{{ $article->slug }}').style.display = 'none';">Annuler</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

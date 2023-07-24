@@ -6,6 +6,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -75,9 +76,12 @@ class ArticleController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @param Article $article
      */
-    public function destroy(string $id)
+    public function delete(Article $article): RedirectResponse
     {
-        //
+        $article->delete();
+        return redirect()->route('articles.index')->with('success', 'L\'article a bien été supprimé.');
     }
+
 }

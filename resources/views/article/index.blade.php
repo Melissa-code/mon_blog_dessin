@@ -14,7 +14,7 @@
                 <section class="col-12 d-flex justify-content-center">
                     <table class="table table-hover border border-secondary mt-3">
                         <thead>
-                            <tr class="table-danger text-center">
+                            <tr class="table-primary text-center">
                                 <th scope="col">Id</th>
                                 <th scope="col">Titre</th>
                                 <th scope="col">Créé le</th>
@@ -29,8 +29,8 @@
 {{--                                <td>{{ date('d/m/Y', strtotime( $article->created_at)) }}</td>--}}
                                 <td>{{ $article->formatDate() }}</td>
                                 <td class="d-flex">
-                                    <a href="#" class="btn btn-warning "><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="#" class="btn btn-danger "><i class="fa-solid fa-trash"></i></a>
+                                    <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -17,14 +17,13 @@
         <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/main.css') }}" rel="stylesheet">
+        {{-- Tiny to create a text editor - doc: https://www.tiny.cloud/docs/quick-start/ --}}
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <title>Mon Blog Dessin</title>
     </head>
     <body>
         @include('_partials._navbar')
-
-        {{-- Tiny to create a text editor - doc: https://www.tiny.cloud/docs/quick-start/ --}}
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
+        @include('_partials._flashMessage')
         @yield('content')
 
         <!-- Bootstrap Jquery & JS -->

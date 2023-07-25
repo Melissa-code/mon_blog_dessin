@@ -17,7 +17,6 @@ class ArticleObserver
         // Change a string to a slug
         //$instance = new Slugify();
         //$article->slug = $instance->slugify($article->title);
-
         // Or composer require laravel/helpers
         $article->slug = Str::slug($article->title, '-');
         $article->save();
@@ -29,7 +28,8 @@ class ArticleObserver
      */
     public function updated(Article $article): void
     {
-        //
+        $article->slug = Str::slug($article->title, '-');
+        $article->saveQuietly(); // updated without events
     }
 
     /**

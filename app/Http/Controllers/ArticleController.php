@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -60,18 +61,29 @@ class ArticleController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @param Article $article
+     * @return View
      */
-    public function edit(string $id)
+    public function edit(Article $article)
     {
-        //
+        return view('article.edit', [
+            'article' => $article,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
+     * @param ArticleRequest $request
+     * @param Article $article
      */
-    public function update(Request $request, string $id)
+    public function update(ArticleRequest $request, Article $article): RedirectResponse
     {
-        //
+        $article->title = $request->input('title');
+        $article->subtitle = $request->input('subtitle');
+        $article->content = $request->input('content');
+        $article->save();
+
+        return redirect()->route('articles.index')->with('success', 'L\'article a bien été modifié.');
     }
 
     /**

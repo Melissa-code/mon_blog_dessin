@@ -29,7 +29,9 @@
 {{--                                <td>{{ date('d/m/Y', strtotime( $article->created_at)) }}</td>--}}
                                 <td>{{ $article->formatDate() }}</td>
                                 <td class="d-flex">
-                                    <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    {{-- Edit an article --}}
+                                    <a href="{{ route('article.edit', $article->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    {{-- Delete an article --}}
                                     <button type="button" class="btn btn-danger" onclick="document.getElementById('delete-article-modal-{{ $article->slug }}').style.display = 'block';"><i class="fa-solid fa-trash"></i></button>
                                     <form action="{{ route('article.delete', $article->id) }}" method="POST">
                                         @method('DELETE') {{-- overload the method post --}}

@@ -18,4 +18,5 @@ Route::get('/admin/articles', [\App\Http\Controllers\ArticleController::class, '
 Route::get('/admin/articles/create', [\App\Http\Controllers\ArticleController::class, 'create'])->middleware('admin')->name('article.create');
 Route::post('/admin/articles/store', [\App\Http\Controllers\ArticleController::class, 'store'])->middleware('admin')->name('article.store');
 Route::delete('/admin/articles/{article:id}/delete', [\App\Http\Controllers\ArticleController::class, 'delete'])->middleware('admin')->name('article.delete');
-
+Route::get('/admin/articles/{article}/edit', [\App\Http\Controllers\ArticleController::class, 'edit'])->middleware('admin')->name('article.edit');
+Route::put('/admin/articles/{article}/update', [\App\Http\Controllers\ArticleController::class, 'update'])->middleware('admin')->name('article.update');

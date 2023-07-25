@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
+use App\Manager\ArticleManager;
 use App\Models\Article;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -12,6 +12,13 @@ use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
+    private ArticleManager $articleManager;
+
+    public function __construct(ArticleManager $articleManager)
+    {
+        $this->articleManager = $articleManager;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -41,12 +48,7 @@ class ArticleController extends Controller
         // Validation constraints
         $validated = $request->validated();
 
-        // Create a new article in the DB
-        Article::create([
-            'title' => $request->input('title'),
-            'subtitle' => $request->input('subtitle'),
-            'content' => $request->input('content'),
-        ]);
+        $this->articleManager->build($request, new Article());
 
         return redirect()->route('articles.index')->with('success', 'L\'article a bien été sauvegardé.');
     }
@@ -78,10 +80,9 @@ class ArticleController extends Controller
      */
     public function update(ArticleRequest $request, Article $article): RedirectResponse
     {
-        $article->title = $request->input('title');
-        $article->subtitle = $request->input('subtitle');
-        $article->content = $request->input('content');
-        $article->save();
+        $validated = $request->validated();
+        //dd(get_class_methods($this->articleManager));
+        $this->articleManager->build($request, $article);
 
         return redirect()->route('articles.index')->with('success', 'L\'article a bien été modifié.');
     }

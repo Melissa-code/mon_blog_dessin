@@ -11,7 +11,7 @@
 
                 {{-- Create an article form --}}
                 <section class="col-12 d-flex justify-content-center">
-                    <form action="{{ route('article.store') }}" method="post">
+                    <form action="{{ route('articles.store') }}" method="post">
                         @csrf
 {{--                        @dump($errors->all())--}}
                         <div class="form-group">

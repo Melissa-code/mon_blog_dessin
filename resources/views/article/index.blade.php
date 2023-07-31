@@ -30,10 +30,10 @@
                                 <td>{{ $article->formatDate() }}</td>
                                 <td class="d-flex">
                                     {{-- Edit an article --}}
-                                    <a href="{{ route('article.edit', $article->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                     {{-- Delete an article --}}
                                     <button type="button" class="btn btn-danger" onclick="document.getElementById('delete-article-modal-{{ $article->slug }}').style.display = 'block';"><i class="fa-solid fa-trash"></i></button>
-                                    <form action="{{ route('article.delete', $article->id) }}" method="POST">
+                                    <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                                         @method('DELETE') {{-- overload the method post --}}
                                         @csrf
                                         {{-- Modal to delete --}}
@@ -66,7 +66,7 @@
 
                 {{-- Add a new article --}}
                 <section class="col-12 text-center">
-                    <a href="{{ route('article.create') }}" class="btn btn-dark w-100">
+                    <a href="{{ route('articles.create') }}" class="btn btn-dark w-100">
                         <i class="fa-solid fa-plus"></i>
                         Ajouter un article</a>
                 </section>

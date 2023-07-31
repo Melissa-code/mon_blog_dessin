@@ -11,7 +11,7 @@
 
                 {{-- Edit an article form --}}
                 <section class="col-12 d-flex justify-content-center">
-                    <form action="{{ route('article.update', $article->id) }}" method="post">
+                    <form action="{{ route('articles.update', $article->id) }}" method="post">
                         @csrf
                         @method('PUT')
                         {{-- @dump($errors->all())--}}

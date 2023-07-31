@@ -91,7 +91,7 @@ class ArticleController extends Controller
      * Remove the specified resource from storage.
      * @param Article $article
      */
-    public function delete(Article $article): RedirectResponse
+    public function destroy(Article $article): RedirectResponse
     {
         $article->delete();
         return redirect()->route('articles.index')->with('success', 'L\'article a bien été supprimé.');

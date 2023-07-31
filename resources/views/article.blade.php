@@ -14,8 +14,13 @@
                         <article class="col-12 mt-2 text-center">
                             <h5>{{ $article->subtitle }}</h5>
                         </article>
+                        <article class="col-12 mt-2 text-center">
+                            <span class="badge badge-primary "><h6 class="text-light px-1 pt-1">{{ $article->category->label }}</h6></span>
+                        </article>
+
+{{--                        @dump($article)--}}
                         <article class="col-12 text-justify mt-4">
-                            {{-- {!! !!} to interprete code and to havong HTML tags --}}
+                            {{-- {!! !!} to interprete code and to having HTML tags --}}
                             <p>{!! $article->content !!}</p>
                             {{-- Button come back --}}
                             <a href="{{ route('articles') }}" class="btn btn-danger mt-4">

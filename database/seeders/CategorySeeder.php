@@ -12,12 +12,15 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = ['huile', 'crayons de couleur', 'fusain', 'aquarelle', 'gouache'];
+//        $categories = ['huile', 'crayons de couleur', 'fusain', 'aquarelle', 'gouache'];
+//
+//        for($i = 0; $i < count($categories); $i++) {
+//            Category::create([
+//                'label' => $categories[$i],
+//            ]);
+//        }
 
-        for($i = 0; $i < count($categories); $i++) {
-            Category::create([
-                'label' => $categories[$i],
-            ]);
-        }
+        // Call the Factory (for instance 5 categories)
+        \App\Models\Category::factory(5)->create();
     }
 }

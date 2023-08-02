@@ -31,6 +31,14 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <select class="custom-select" name="category">
+                                <option selected="" >- Sélectionner une catégorie</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $category->id === $article->category->id ? 'selected' : '' }}>{{ $category->label }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="tinyEditor" class="font-weight-bold">Description</label>
                             <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="tinyEditor" rows="3">{{ $article->content }}</textarea>
                             @error('content')

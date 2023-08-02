@@ -13,7 +13,6 @@
                 <section class="col-12 d-flex justify-content-center">
                     <form action="{{ route('articles.store') }}" method="post">
                         @csrf
-{{--                        @dump($errors->all())--}}
                         <div class="form-group">
                             <label for="title" class="font-weight-bold">Titre</label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" aria-describedby="title" placeholder="Titre de l'article">
@@ -28,6 +27,14 @@
                             @error('subtitle')
                                 <span class="invalid-feedback" role="alert">{{ $message }}</span>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <select class="custom-select" name="category">
+                                <option selected="" >- Sélectionner une catégorie</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->label }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="tinyEditor" class="font-weight-bold">Description</label>

@@ -2,11 +2,15 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RouteTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * Test the authentification of the admin
      */
@@ -21,7 +25,12 @@ class RouteTest extends TestCase
      */
     public function testAccessAdminWithAdminRole()
     {
-        $admin = Auth::loginUsingId(1);
+        $admin = User::create([
+            'email' => 'example@example.com',
+            'name' => 'Jacques',
+            'password' => Hash::make('secretPassword'),
+            'role' => User::ADMIN_ROLE,
+        ]);
         //dd($admin);
         $this->actingAs($admin);
 

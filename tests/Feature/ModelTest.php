@@ -11,6 +11,7 @@ use Tests\TestCase;
 
 class ModelTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * Test the registration if the information is correct (RegisterController)
      * @param array $data

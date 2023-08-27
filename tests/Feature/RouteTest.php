@@ -17,7 +17,7 @@ class RouteTest extends TestCase
     }
 
     /**
-     * Test that the user has a admin role
+     * Test that the user has an admin role
      */
     public function testAccessAdminWithAdminRole()
     {

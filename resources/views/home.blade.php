@@ -14,6 +14,8 @@
                         Voir plus
                         <i class="fa-solid fa-arrow-right" style="color: #ffffff";></i>
                     </a>
+                    {{-- <livewire:counter /> : includes the component in the page --}}
+                    @livewire('counter')
                 </div>
             </div>
         </div>
